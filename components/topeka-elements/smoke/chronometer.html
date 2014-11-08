@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+-->
+<html>
+<head>
+  <title>chronometer</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  
+  <script src="sampleData.js"></script>
+  
+  <link rel="stylesheet" href="../topeka-category-themes.css" shim-shadowdom>
+  
+  <link rel="import" href="../../font-roboto/roboto.html">
+  <link rel="import" href="../chronometer.html">
+  
+  <style>
+  
+    body {
+      font-family: "RobotoDraft", sans-serif;
+    }
+  
+  </style>
+  
+</head>
+<body unresolved class="yellow-theme">
+
+  <g-chronometer reverse="true" startTime='{"hour":0, "min":2, "sec": 0}'></g-chronometer>
+  <button id="test">start/stop</button>
+  <script>
+  
+    addEventListener('polymer-ready', function() {
+      var s = document.querySelector('g-chronometer');
+    });
+    document.getElementById("test").onclick = function () {
+      var s = document.querySelector('g-chronometer');
+      s.stop  = !s.stop;
+    };
+  </script>
+  
+</body>
+</html>
+ 

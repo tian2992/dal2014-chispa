@@ -1,0 +1,77 @@
+<link rel="import"  href="../polymer/polymer.html">
+  
+<polymer-element attributes="reverse startTime" name="g-chronometer">
+  <template>
+    <style>
+    </style>
+    <span id="chronotime">00:00:00</span>
+  </template>
+  <script>
+  Polymer({
+    ready: function (){
+        this.setTime(this.startTime);
+        this.chrono();
+      },
+    startTime: { hour: 0, min: 10, sec: 0 },
+    secs: 0,
+    reverse: false,
+    timerID : 0,
+    dt: 1000,
+    stop: true,
+    setTime: function (startTime) {
+          this.secs = startTime.hour*3600 + startTime.min*60 + startTime.sec;
+        },
+    chrono: function () { this._chrono_(this); },
+    _chrono_: function (self) {
+          console.log("tick");
+          if (self.stop || self.secs <= 0)
+            ;
+          else if (self.reverse)
+            self.secs -= self.dt/1000;
+          else
+            self.secs += self.dt/1000;
+
+          var min = Math.floor( ( self.secs / 60 ) % 60 );
+          var sec = Math.floor( self.secs % 60 );
+          var hr = Math.floor( ( self.secs / 3600 ) % 100 );
+          if (min < 10){
+                  min = "0" + min;
+          }
+          if (sec < 10){
+                  sec = "0" + sec;
+          }
+          self.$.chronotime.textContent = (hr ? (hr + ":") : "" ) + min + ":" + sec ;
+          self.timerID = setTimeout( self._chrono_, self.dt, self);
+        },
+    chronoStart: function(){
+          document.chronoForm.startstop.value = "stop!";
+          document.chronoForm.startstop.onclick = chronoStop;
+          document.chronoForm.reset.onclick = chronoReset;
+          start = new Date();
+          chrono();
+        },
+    chronoContinue: function (){
+          document.chronoForm.startstop.value = "stop!";
+          document.chronoForm.startstop.onclick = chronoStop;
+          document.chronoForm.reset.onclick = chronoReset;
+          start = new Date()-diff;
+          start = new Date(start);
+          chrono();
+        },
+    chronoReset: function (){
+          document.getElementById("chronotime").innerHTML = "0:00:00:000";
+          start = new Date();
+        },
+    chronoStopReset: function (){
+          document.getElementById("chronotime").innerHTML = "0:00:00:000";
+          document.chronoForm.startstop.onclick = chronoStart;
+        },
+    chronoStop: function (){
+          document.chronoForm.startstop.value = "start!";
+          document.chronoForm.startstop.onclick = chronoContinue;
+          document.chronoForm.reset.onclick = chronoStopReset;
+          clearTimeout(timerID);
+        }
+  });
+  </script>
+</polymer-element>
