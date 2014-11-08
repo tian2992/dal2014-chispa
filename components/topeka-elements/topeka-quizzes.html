@@ -29,6 +29,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <link rel="stylesheet" href="topeka-quizzes.css">
 
+  <topeka-status-bar class="{{ {wide: wide} | tokenList }}" avatar="{{avatar}}" scores="{{scores}}" category="{{category}}" wide="{{wide}}" slide-up?="{{parentElement.selected === 'quizzes'}}"></topeka-status-bar>
+
   <div id="quizzesPanel" class="quizzes-panel {{ {wide: wide} | tokenList }}" flex vertical layout?="{{!wide}}" slide-up?="{{parentElement.selected !== 'empty'}}" slide-down?="{{parentElement.selected === 'empty'}}">
   
     <div class="card {{ {answered: answered} | tokenList }}" flex?="{{!wide}}" vertical layout?="{{!wide}}" hero-p>
@@ -64,7 +66,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
   </div>
 
-  <topeka-status-bar class="{{ {wide: wide} | tokenList }}" avatar="{{avatar}}" scores="{{scores}}" category="{{category}}" wide="{{wide}}" slide-up?="{{parentElement.selected === 'quizzes'}}"></topeka-status-bar>
   
 </template>
 <script>

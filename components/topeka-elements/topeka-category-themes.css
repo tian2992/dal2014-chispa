@@ -131,6 +131,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   color: #fff;
 }
 
+.blue-theme /deep/ .theme-color-dark {
+  color: gray;
+}
+
 .blue-theme /deep/ .theme-icon {
   color: #03A9F4;
 }

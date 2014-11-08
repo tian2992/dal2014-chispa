@@ -9,7 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 .main-button {
   position: absolute;
-  top: 8px;
+  top: 12px;
   left: 8px;
   z-index: 10000;
 }

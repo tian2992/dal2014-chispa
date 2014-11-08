@@ -46,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
     </core-animated-pages>
     
-    <paper-icon-button class="main-button {{ {'theme-color': !wide && selected == 'quizzes'} | tokenList }}" icon="arrow-back" hidden?="{{selected === 'results' || selected === 'score'}}" on-tap="{{mainAction}}" hero?="{{parentElement.selected === 'categories'}}" cross-fade-delayed?="{{parentElement.selected === 'category'}}"></paper-icon-button>
+    <paper-icon-button class="main-button {{ {'theme-color-dark': !wide && selected == 'quizzes'} | tokenList }}" icon="arrow-back" hidden?="{{selected === 'results' || selected === 'score'}}" on-tap="{{mainAction}}" hero?="{{parentElement.selected === 'categories'}}" cross-fade-delayed?="{{parentElement.selected === 'category'}}" ></paper-icon-button>
     
   </div>
   
