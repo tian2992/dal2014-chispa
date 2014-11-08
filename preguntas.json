@@ -3,6 +3,7 @@
         "name": "Congreso",
         "id": "history",
         "theme": "blue",
+        "time": { "hour": 0, "min": 2, "sec": 0 }, 
         "quizzes": [
             {
                 "type": "multi-select",
