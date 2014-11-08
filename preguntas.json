@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Congreso",
+        "id": "history",
+        "theme": "blue",
+        "quizzes": [
+            {
+                "type": "multi-select",
+                "question": "Los diputados del Congreso de la República son electos de la siguiente forma:",
+                "options": [
+                    "a través del sufragio (voto) universal y secreto",
+                    "a través del sufragio (voto) por el sistema de distritos electorales y lista nacional",
+                    "a través del sufragio (voto) por el sistema de lista nacional"
+                ],
+                "answer": [0, 1, 2]
+            },
+            {
+                "type": "single-select-item",
+                "question": "¿Cuántos distritos electorales hay en Guatemala?",
+                "options": [
+                    "hay 335 distritos",
+                    "hay 22 distritos",
+                    "hay 23 distritos",
+                    "hay 44 distritos"
+                ],
+                "answer": [2]
+            },
+            {
+                "type": "single-select-item",
+                "question": "¿Cuántos diputados serán electos directamente como diputados por lista nacional?",
+                "options": [
+                    "22 diputados (uno por cada departamento)",
+                    "25 diputados",
+                    "Un número equivalente al 25% del total de diputados.",
+                    "Un número equivalente al 25% del diputados distritales."
+                ],
+                "answer": [2]
+            }
+      ]
+    }
+]

@@ -64,7 +64,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body>
 
   <template is="auto-binding">
-    <topeka-datasource url="components/topeka-elements/categories.json" user="{{user}}" categories="{{categories}}" connected="{{connected}}"></topeka-datasource>
+    <!-- <topeka-datasource url="components/topeka-elements/categories.json" user="{{user}}" categories="{{categories}}" connected="{{connected}}"></topeka-datasource> -->
+    <topeka-datasource url="preguntas.json" user="{{user}}" categories="{{categories}}" connected="{{connected}}"></topeka-datasource>
     <topeka-app fit user="{{user}}" categories="{{categories}}" connected="{{connected}}" touch-action="auto"></topeka-app>
   </template>
 
