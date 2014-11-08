@@ -22,14 +22,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <div class="categories-panel" flex auto>
 
-    <core-toolbar class="category-toolbar" slide-down?="{{parentElement.selected !== 'category' && parentElement.lastSelected !== 'category'}}">
-
-      <core-icon icon="avatars:avatar-{{user.avatar}}" class="topeka-avatar"></core-icon>
-      <div flex class="user-name">{{user.name}}</div>
-      <div>{{user.score}} pts</div>
-
-    </core-toolbar>
-
     <core-selector class="category-list content {{ {wide: wide} | tokenList }}" selected="{{selected}}" tile-cascade?="{{parentElement.selected !== 'category' && parentElement.lastSelected !== 'category'}}" fade?="{{parentElement.lastSelected === 'splash'}}">
 
       <div class="category-item leaderboard" vertical layout>

@@ -22,7 +22,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <template>
 
   <link rel="stylesheet" href="topeka-app.css">
-  
+  <core-header-panel>
+    <core-toolbar hidden?="{{selected == 'profile'}}" class="category-toolbar" slide-down?="{{parentElement.selected !== 'category' && parentElement.lastSelected !== 'category'}}">
+      <core-icon icon="avatars:avatar-{{user.avatar}}" class="topeka-avatar"></core-icon>
+      <div flex class="user-name">{{user.name}}</div>
+      <div  hidden?="{{hideChronometer}}" > <g-chronometer reverse="true"></g-chronometer> </div>
+      <div>{{user.score}} pts</div>
+
+    </core-toolbar>
+
+  </core-header-panel>
   <core-animated-pages selected="{{selected}}" transitions="cross-fade cross-fade-delayed scale-up slide-up slide-up-offscreen slide-down tile-cascade hero-transition" flex auto on-core-animated-pages-transition-end="{{transitionEndAction}}">
     
     <div name="splash">
