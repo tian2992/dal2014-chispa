@@ -31,9 +31,10 @@
             ;
           } 
           else if (self.secs <= 0) {
-            if (!this.fireEnd) {
+            if (!self.fireEnd) {
+              console.log(self.fireEnd);
               self.fireEnd = true;
-              self.fire('core-signal', {name: self.prefix + "chrono-end", data: null});
+              self.fire('core-signal', {name: "chrono-end", data: null});
             }
           }
           else if (self.reverse) {
