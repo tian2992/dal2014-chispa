@@ -17,9 +17,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../core-animated-pages/transitions/scale-up.html">
 <link rel="import" href="../core-animated-pages/transitions/tile-cascade.html">
 <link rel="import" href="../core-media-query/core-media-query.html">
+<link rel="import" href="../core-signals/core-signals.html">
+<link rel="import" href="chronometer.html">
 
 <polymer-element name="topeka-app" attributes="user categories" vertical layout>
 <template>
+  <core-signals on-core-signal-chrono-set-start="{{chronoSetStartSignal}}"></core-signals>
 
   <link rel="stylesheet" href="topeka-app.css">
   <core-header-panel>
@@ -65,6 +68,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   setTopekaTransitionSpeed(350);
 
   Polymer('topeka-app', {
+    
+    hideChronometer: true,
+    
+    chronoSetStartSignal: function (timestart) {
+      var chrono = this.shadowRoot.querySelector('g-chronometer');
+      chrono.setTime(timestart.detail);
+      var self = this;
+      setTimeout( function () {
+          self.hideChronometer = false;
+          chrono.start();
+        }, 1000);
+    },
     
     selected: 'splash',
 

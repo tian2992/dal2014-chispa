@@ -15,9 +15,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../core-animated-pages/transitions/slide-up.html">
 <link rel="import" href="../core-animated-pages/transitions/slide-down.html">
+<link rel="import" href="../core-signals/core-signals.html">
 
 <polymer-element name="topeka-category" attributes="user category selected wide allScores" vertical layout>
 <template>
+  <core-signals on-core-signal-chrono-end="{{chronoEndSignal}}"></core-signals>
 
   <link rel="stylesheet" href="topeka-category.css">
   <link rel="stylesheet" href="topeka-category-themes.css">
@@ -106,7 +108,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
     
     showQuizzes: function() {
+      // start chronometer
+      if (this.category.time) {
+        this.fire('core-signal', {name: "chrono-set-start", data: this.category.time});
+      }
       this.selected = 'quizzes';
+    },
+    
+    chronoEndSignal: function (data) {
+      console.log("chrono ended");
+      this.timeOut();
+    },
+    
+    timeOut: function () {
+      alert("timeout");
+      this.selected = 'results';
     },
     
     showScore: function() {
@@ -125,8 +141,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this.$.quizzes.resetScrollTop();
       this.selected = 'quizScore';
       this.quizScore = detail.score;
-    }
-    
+    },
   });
 
 </script>
