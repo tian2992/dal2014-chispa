@@ -26,14 +26,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <core-signals on-core-signal-chrono-end="{{chronoEndSignal}}"></core-signals>
   <link rel="stylesheet" href="topeka-app.css">
   <core-header-panel>
-    <core-toolbar hidden?="{{selected == 'profile'}}" class="category-toolbar" slide-down?="{{parentElement.selected !== 'category' && parentElement.lastSelected !== 'category'}}">
+    <core-toolbar hidden?="{{selected === 'profile'}}" class="category-toolbar" slide-down?="{{parentElement.selected !== 'category' && parentElement.lastSelected !== 'category'}}">
       <core-icon icon="avatars:avatar-{{user.avatar}}" class="topeka-avatar"></core-icon>
       <div flex class="user-name">{{user.name}}</div>
       <div  hidden?="{{hideChronometer}}" > <g-chronometer reverse="true"></g-chronometer> </div>
       <div>{{user.score}} pts</div>
-<!--   <paper-progress value="{{scores.length + (scores.length === category.quizzes.length ? 0 : 1)}}" max="{{category.quizzes.length}}"></paper-progress> -->
     </core-toolbar>
-    <paper-progress value="50" max="100"></paper-progress>
+    <paper-progress hidden?="{{selected !== 'category' }}" value="{{scores.length + (scores.length === category.quizzes.length ? 0 : 1)}}" max="{{category.quizzes.length}}"></paper-progress>
   </core-header-panel>
   <core-animated-pages selected="{{selected}}" transitions="cross-fade cross-fade-delayed scale-up slide-up slide-up-offscreen slide-down tile-cascade hero-transition" flex auto on-core-animated-pages-transition-end="{{transitionEndAction}}">
     
@@ -99,6 +98,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'user': 'startup'
     },
 
+    computed: {
+      'scores': 'computeCategoryScore(allScores, category, dirty)'
+    },
+
     ready: function() {
       this.test = window.location.search.indexOf('test') >= 0;
       this.offline = this.test || window.location.search.indexOf('offline') >= 0;
@@ -140,7 +143,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
     showCategory: function() {
       this.selected = 'category';
-      if (this.categoty.time) {
+      if (this.category.time) {
         this.chronoSetStart(this.category.time);
       }
     },
@@ -201,6 +204,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.user.score = 0;
       }
       this.allScores = {};
+    },
+    
+    computeCategoryScore: function(user, category) {
+      if (this.allScores && category && category.quizzes) {
+        var n = category.name;
+        return this.allScores[n] = this.allScores[n] || [];
+      } else {
+        return null;
+      }
     },
     
     sumPts: function(s) {
