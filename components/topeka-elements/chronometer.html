@@ -1,13 +1,15 @@
 <link rel="import"  href="../polymer/polymer.html">
-  
-<polymer-element attributes="reverse startTime" name="g-chronometer">
+<link rel="import" href="../core-signals/core-signals.html">
+
+<polymer-element attributes="reverse startTime prefix" name="g-chronometer">
   <template>
     <style>
     </style>
-    <span id="chronotime">00:00:00</span>
+    Tiempo <span id="chronotime">00:00:00</span>
   </template>
   <script>
   Polymer({
+    prefix: '',
     ready: function (){
         this.setTime(this.startTime);
         this.chrono();
@@ -27,11 +29,11 @@
           console.log("tick", self._stop_, self.secs);
           if (self._stop_) {
             ;
-          }
-          if (self.secs <= 0) {
+          } 
+          else if (self.secs <= 0) {
             if (!this.fireEnd) {
-              this.fireEnd = true;
-              this.fire('end');
+              self.fireEnd = true;
+              self.fire('core-signal', {name: self.prefix + "chrono-end", data: null});
             }
           }
           else if (self.reverse) {
@@ -65,6 +67,7 @@
           this.secs = this.resetSecs;
           this.fireEnd = false;
         },
+    
   });
   </script>
 </polymer-element>
