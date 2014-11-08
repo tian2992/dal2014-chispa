@@ -22,8 +22,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <polymer-element name="topeka-app" attributes="user categories" vertical layout>
 <template>
-  <core-signals on-core-signal-chrono-set-start="{{chronoSetStartSignal}}"></core-signals>
-
+  <core-signals on-core-signal-chrono-set-start="{{chronoSetStart}}"></core-signals>
+  <core-signals on-core-signal-chrono-end="{{chronoEndSignal}}"></core-signals>
   <link rel="stylesheet" href="topeka-app.css">
   <core-header-panel>
     <core-toolbar hidden?="{{selected == 'profile'}}" class="category-toolbar" slide-down?="{{parentElement.selected !== 'category' && parentElement.lastSelected !== 'category'}}">
@@ -71,14 +71,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
     hideChronometer: true,
     
-    chronoSetStartSignal: function (timestart) {
+    chronoSetStart: function (timestart) {
       var chrono = this.shadowRoot.querySelector('g-chronometer');
-      chrono.setTime(timestart.detail);
+      chrono.setTime(timestart);
       var self = this;
       setTimeout( function () {
           self.hideChronometer = false;
           chrono.start();
         }, 1000);
+    }, 
+    
+    chronoEndSignal: function (data) { 
+
     },
     
     selected: 'splash',
@@ -128,10 +132,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     showCategories: function() {
       this.selected = 'categories';
+
+      this.hideChronometer = true;
+      var chrono = this.shadowRoot.querySelector('g-chronometer');
+      chrono.stop();
     },
     
     showCategory: function() {
       this.selected = 'category';
+      if (this.categoty.time) {
+        this.chronoSetStart(this.category.time);
+      }
     },
     
     showLeaderboard: function() {

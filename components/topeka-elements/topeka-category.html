@@ -108,15 +108,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
     
     showQuizzes: function() {
-      // start chronometer
-      if (this.category.time) {
-        this.fire('core-signal', {name: "chrono-set-start", data: this.category.time});
-      }
       this.selected = 'quizzes';
     },
     
     chronoEndSignal: function (data) {
-      console.log("chrono ended");
       this.timeOut();
     },
     
