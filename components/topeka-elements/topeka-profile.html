@@ -17,9 +17,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <polymer-element name="topeka-profile" attributes="user userDefaults wide" center layout vertical>
 
 <template>
-  
+
   <style>
-  
+
     core-toolbar {
       background-color: none;
     }
@@ -113,11 +113,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     paper-fab[disabled] {
       pointer-events: none;
     }
-    
+
     .main {
       position: relative;
     }
-    
+
     .bg {
       background-color: #eee;
     }
@@ -132,7 +132,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
   </style>
-  
+
   <div class="bg" fit dummy cross-fade></div>
 
   <div class="main" flex layout vertical cross-fade-delayed?="{{parentElement.lastSelected === 'splash'}}">
@@ -142,6 +142,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div class="header">{{userDefaults ? 'Your Profile' : 'Sign In'}}</div>
           <paper-input label="First Name" id="first"></paper-input>
           <paper-input label="Last Initial" id="last" maxlength="1"></paper-input>
+          <paper-input label="Municipio"></paper-input>
+          <paper-input label="Departamento"></paper-input>
+          <paper-input label="Edad"></paper-input>
           <div class="header spaced">Choose an Avatar</div>
         </div>
         <div id="avatarList" flex>
