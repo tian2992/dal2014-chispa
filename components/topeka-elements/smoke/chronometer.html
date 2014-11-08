@@ -30,15 +30,25 @@
 <body unresolved class="yellow-theme">
 
   <g-chronometer reverse="true" startTime='{"hour":0, "min":2, "sec": 0}'></g-chronometer>
-  <button id="test">start/stop</button>
+  <button id="start">start</button>
+  <button id="stop">stop</button>
+  <button id="reset">reset</button>
   <script>
   
     addEventListener('polymer-ready', function() {
       var s = document.querySelector('g-chronometer');
     });
-    document.getElementById("test").onclick = function () {
+    document.getElementById("start").onclick = function () {
       var s = document.querySelector('g-chronometer');
-      s.stop  = !s.stop;
+      s.start();
+    };
+    document.getElementById("stop").onclick = function () {
+      var s = document.querySelector('g-chronometer');
+      s.stop();
+    };
+    document.getElementById("reset").onclick = function () {
+      var s = document.querySelector('g-chronometer');
+      s.reset();
     };
   </script>
   
