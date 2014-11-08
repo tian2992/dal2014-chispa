@@ -138,5 +138,134 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "El Congreso hoy",
+        "id": "geography",
+        "theme": "red",
+        "quizzes": [
+            {
+                "type": "single-select-item",
+                "question": "¿Cuántos puestos para diputados/as hay en el Congreso?",
+                "options": [
+                    "100",
+                    "158",
+                    "84",
+                    "122"
+                ],
+                "answer": [
+                    1
+                ]
+            },
+            {
+                "type": "fill-blank",
+                "question": "Este diputado es el presidente de la Junta Directiva del Congreso para el año 2014:",
+                "start": "Pertenece al Partido Patriota; su primer nombre es Arístides, y su primer apellido es… ",
+                "answer": "Crespo"
+            },
+            {
+                "type": "fill-blank",
+                "question": "¿Con 51 diputados qué partido tiene la bancada mas grande en el Congreso actualmente?",
+                "start": "Aclaración: No es necesario escribir la palabra 'partido' en la respuesta",
+                "answer": "Lider"
+            },
+            {
+                "type": "toggle-translate",
+                "question": "Los diputados son asignados a cada distrito en base a la población del distrito (por ejemplo, El Progreso tiene 1 diputado mientras que Alta Verapaz tiene 10). Selecciona los pares en los que el distrito y el número de diputados sean correctos:",
+                "options": [
+                    [
+                        "Baja Verapaz",
+                        "4 diputados"
+                    ],
+                    [
+                        "Petén",
+                        "4 diputados"
+                    ],
+                    [
+                        "Escuintla",
+                        "6 diputados"
+                    ],
+                    [
+                        "Zacapa",
+                        "2 diputados"
+                    ],
+                    [
+                        "Quetzaltenango",
+                        "7 diputados"
+                    ]
+                ],
+                "answer": [
+                    1,
+                    3,
+                    4
+                ]
+            },
+            {
+                "type": "single-select-item",
+                "question": "Actualmente, las mujeres representan el 12.66% de los diputados en el Congreso ¿Cuántas diputadas mujeres hay?",
+                "options": [
+                    "40 diputadas",
+                    "20 diputadas",
+                    "10 diputadas",
+                    "30 diputadas "
+                ],
+                "answer": [
+                    1
+                ]
+            },
+            {
+                "type": "picker",
+                "question": "¿Cuantos partidos están representados en el Congreso? (sin contar a diputados/as declarados/as independientes)",
+                "min": 5,
+                "max": 20,
+                "answer": 13
+            },
+            {
+                "type": "single-select-item",
+                "question": "Recientemente se eligió a la Junta Directiva del Congreso para el 2015 ¿Quién de los siguientes quedó de Presidente del Congreso? ",
+                "options": [
+                    "Roberto Alejos (TODOS)",
+                    "Roberto Villaté (LIDER)",
+                    "Arístides Crespo (Partido Patriota)",
+                    "Luis Rabbé (INDEPENDIENTE) "
+                ],
+                "answer": [
+                    3
+                ]
+            },
+            {
+                "type": "picker",
+                "question": "¿Cuántos años tiene Juan Manuel Giordano actualmente, el diputado mas joven del Congreso?",
+                "min": 18,
+                "max": 25,
+                "answer": 22
+            },
+            {
+                "type": "single-select-item",
+                "question": "¿Hasta noviembre del 2014, qué porcentaje de los diputados han cambiado de bancada (partido) desde que tomaron posesión en el 2012?",
+                "options": [
+                    "aproximadamente 22%",
+                    "aproximadamente 46%",
+                    "aproximadamente 54%",
+                    "aproximadamente 61%"
+                ],
+                "answer": [
+                    3
+                ]
+            },
+            {
+                "type": "single-select-item",
+                "question": "Solamente en el 2014, ¿Cuantas iniciativas de ley se han presentado en el Congreso?",
+                "options": [
+                    "25",
+                    "30",
+                    "40",
+                    "50"
+                ],
+                "answer": [
+                    3
+                ]
+            }
+        ]
     }
 ]
