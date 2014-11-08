@@ -170,6 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
       </div>
     </div>
+    <paper-icon-button hidden?="{{tvmode}}" class="main-button {{ {wide: wide} | tokenList }}" icon="arrow-back" on-tap="{{mainAction}}" cross-fade-delayed?="{{!disabled}}" hero?="{{!disabled}}"></paper-icon-button>
   </div>
 
 </template>
@@ -192,6 +193,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.$.last.blur();
         }
       }
+    },
+
+    mainAction: function() {
+      this.fire('main');
     },
 
     ready: function() {
