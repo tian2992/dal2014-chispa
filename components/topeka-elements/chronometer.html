@@ -17,6 +17,7 @@
     reverse: false,
     timerID : 0,
     dt: 1000,
+    fireEnd: true,
     _stop_: true,
     setTime: function (startTime) {
           this.resetSecs = this.secs = startTime.hour*3600 + startTime.min*60 + startTime.sec;
@@ -24,13 +25,22 @@
     chrono: function () { this._chrono_(this); },
     _chrono_: function (self) {
           console.log("tick", self._stop_, self.secs);
-          if (self._stop_ || self.secs <= 0)
+          if (self._stop_) {
             ;
-          else if (self.reverse)
+          }
+          if (self.secs <= 0) {
+            if (!this.fireEnd) {
+              this.fireEnd = true;
+              this.fire('end');
+            }
+          }
+          else if (self.reverse) {
             self.secs -= self.dt/1000;
-          else
+          }
+          else {
             self.secs += self.dt/1000;
-
+          }
+          
           var min = Math.floor( ( self.secs / 60 ) % 60 );
           var sec = Math.floor( self.secs % 60 );
           var hr = Math.floor( ( self.secs / 3600 ) % 100 );
@@ -45,12 +55,15 @@
         },
     start: function(){
           this._stop_ = false;
+          this.fireEnd = false;
         },
     stop: function(){
           this._stop_ = true;
+          this.fireEnd = true;
         },
     reset: function () {
           this.secs = this.resetSecs;
+          this.fireEnd = false;
         },
   });
   </script>
