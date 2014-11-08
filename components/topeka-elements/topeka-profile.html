@@ -17,9 +17,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <polymer-element name="topeka-profile" attributes="user userDefaults wide" center layout vertical>
 
 <template>
-  
+
   <style>
-  
+
     core-toolbar {
       background-color: none;
     }
@@ -113,11 +113,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     paper-fab[disabled] {
       pointer-events: none;
     }
-    
+
     .main {
       position: relative;
     }
-    
+
     .bg {
       background-color: #eee;
     }
@@ -132,7 +132,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
   </style>
-  
+
   <div class="bg" fit dummy cross-fade></div>
 
   <div class="main" flex layout vertical cross-fade-delayed?="{{parentElement.lastSelected === 'splash'}}">
@@ -140,9 +140,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div layout vertical flex cross-fade-delayed?="{{parentElement.lastSelected !== 'splash' && wide}}" on-keypress="{{ keypressAction }}">
         <div class="indent" layout vertical>
           <div class="header">{{userDefaults ? 'Your Profile' : 'Sign In'}}</div>
-          <paper-input label="First Name" id="first"></paper-input>
-          <paper-input label="Last Initial" id="last" maxlength="1"></paper-input>
-          <div class="header spaced">Choose an Avatar</div>
+          <paper-input label="Nombre" id="first"></paper-input>
+          <paper-input label="Apellido" id="last"></paper-input>
+          <paper-input label="Municipio"></paper-input>
+          <paper-input label="Departamento"></paper-input>
+          <paper-input label="Edad"></paper-input>
+          <div class="header spaced">Escoje Avatar</div>
         </div>
         <div id="avatarList" flex>
           <core-selector selected="{{selectedAvatar}}" layout horizontal justified wrap>
@@ -157,7 +160,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </core-selector>
         </div>
         <div horizontal center layout>
-          <paper-button on-tap="{{handleLogout}}" label="Sign Out" hidden?="{{!user}}"></paper-button>
+          <paper-button on-tap="{{handleLogout}}" label="Salir" hidden?="{{!user}}"></paper-button>
           <div flex></div>
           <paper-fab id="check" icon="check" showing?="{{$.first.inputValue.length && $.last.inputValue.length && selectedAvatar !== undefined}}" on-tap="{{handleLogin}}"></paper-fab>
         </div>

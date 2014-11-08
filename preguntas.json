@@ -6,13 +6,18 @@
         "quizzes": [
             {
                 "type": "multi-select",
-                "question": "Los diputados del Congreso de la República son electos de la siguiente forma:",
+                "question": "Los/las diputados/as del Congreso de la República son electos/as de la siguiente forma: (puedes seleccionar múltiples opciones)",
                 "options": [
-                    "a través del sufragio (voto) universal y secreto",
+                    "a través del sufragio (voto) universal",
                     "a través del sufragio (voto) por el sistema de distritos electorales y lista nacional",
-                    "a través del sufragio (voto) por el sistema de lista nacional"
+                    "a través del sufragio (voto) obligatorio",
+                    "a través del sufragio (voto) secreto"
                 ],
-                "answer": [0, 1, 2]
+                "answer": [
+                    0,
+                    1,
+                    3
+                ]
             },
             {
                 "type": "single-select-item",
@@ -23,19 +28,115 @@
                     "hay 23 distritos",
                     "hay 44 distritos"
                 ],
-                "answer": [2]
+                "answer": [
+                    2
+                ]
             },
             {
                 "type": "single-select-item",
-                "question": "¿Cuántos diputados serán electos directamente como diputados por lista nacional?",
+                "question": "¿Cuántos/as diputados/as serán electos/as directamente como diputados/as por lista nacional?",
                 "options": [
                     "22 diputados (uno por cada departamento)",
                     "25 diputados",
                     "Un número equivalente al 25% del total de diputados.",
                     "Un número equivalente al 25% del diputados distritales."
                 ],
-                "answer": [2]
+                "answer": [
+                    2
+                ]
+            },
+            {
+                "type": "single-select-item",
+                "question": "¿Qué pasa en caso de falta definitiva de un/a diputado/a?",
+                "options": [
+                    "se declara vacante el puesto y no se llena la vacante hasta las siguientes elecciones",
+                    "se declara vacante el puesto y se llena conforme a la Ley Electoral y de Partidos",
+                    "se declara vacante el puesto y se convoca a elecciones para llenarlo",
+                    "el presidente del Congreso decide la persona que remplaza al diputado"
+                ],
+                "answer": [
+                    1
+                ]
+            },
+            {
+                "type": "single-select-item",
+                "question": "A menos que esté descrito específicamente, ¿qué se necesita para aprobar cualquier otro tipo de resolución en el congreso?",
+                "options": [
+                    "una mayoría simple (la mitad mas uno de los presentes)",
+                    "una mayoría absoluta (la mitad de los diputados presentes y no presentes)",
+                    "dos tercios del número de diputados presentes y no presentes",
+                    "dos tercios del número de diputados presentes"
+                ],
+                "answer": [
+                    1
+                ]
+            },
+            {
+                "type": "single-select-item",
+                "question": "¿Cuál es la duración del período anual de sesiones ordinarias del Congreso?",
+                "options": [
+                    "desde el 14 de enero hasta el día que determine la junta directiva de cada año",
+                    "desde el primer día hábil hasta el último día hábil de cada año",
+                    "desde el día que convoque la junta directiva hasta el 30 de noviembre de cada año",
+                    "desde el 14 de enero al 15 de mayo y desde el 1 de agosto al 30 de noviembre de cada año "
+                ],
+                "answer": [
+                    3
+                ]
+            },
+            {
+                "type": "single-select-item",
+                "question": "¿Es posible para un/a diputad/a desempeñar el cardo de Ministro/a?",
+                "options": [
+                    "Si, pero solo en su tiempo libre",
+                    "Si, pero solo si paga una multa equivalente al sueldo de un mes",
+                    "Si, pero solo si se le concede permiso por el tiempo que dure el cargo de Ministro/a",
+                    "Nel pastel (o sea, no) "
+                ],
+                "answer": [
+                    2
+                ]
+            },
+            {
+                "type": "multi-select",
+                "question": "Marca todos los requisitos necesarios para poder servir como diputado/a",
+                "options": [
+                    "ser guatemalteco/a de origen",
+                    "estar en ejercicio de sus derechos ciudadanos",
+                    "saber leer y escribir",
+                    "ser mayor de edad "
+                ],
+                "answer": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "type": "single-select-item",
+                "question": "¿Cada cuanto tiempo es elegida la Junta Directiva del Congreso?",
+                "options": [
+                    "cada 4 años",
+                    "cada 2 años",
+                    "cada año",
+                    "cada 6 meses "
+                ],
+                "answer": [
+                    2
+                ]
+            },
+            {
+                "type": "multi-select",
+                "question": "¿Quién de estas personas puede ser diputado/a?",
+                "options": [
+                    "el primo en segundo grado del Presidente de la República",
+                    "un militar activo que trabaja en la base militar Mariscal Zavala",
+                    "una magistrada del Tribunal Supremo Electoral",
+                    "la madre del Presidente del Congreso "
+                ],
+                "answer": [
+                    3
+                ]
             }
-      ]
+        ]
     }
 ]
