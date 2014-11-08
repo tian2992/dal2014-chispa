@@ -31,9 +31,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div flex class="user-name">{{user.name}}</div>
       <div  hidden?="{{hideChronometer}}" > <g-chronometer reverse="true"></g-chronometer> </div>
       <div>{{user.score}} pts</div>
-
+<!--   <paper-progress value="{{scores.length + (scores.length === category.quizzes.length ? 0 : 1)}}" max="{{category.quizzes.length}}"></paper-progress> -->
     </core-toolbar>
-
+    <paper-progress value="50" max="100"></paper-progress>
   </core-header-panel>
   <core-animated-pages selected="{{selected}}" transitions="cross-fade cross-fade-delayed scale-up slide-up slide-up-offscreen slide-down tile-cascade hero-transition" flex auto on-core-animated-pages-transition-end="{{transitionEndAction}}">
     

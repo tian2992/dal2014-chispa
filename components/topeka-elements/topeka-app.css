@@ -38,3 +38,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   height: 64px;
   width: 64px;
 }
+
+paper-progress {
+  width: 100%;
+  display: block;
+}
+
+paper-progress::shadow #activeProgress {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
